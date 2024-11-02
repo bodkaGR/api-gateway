@@ -1,0 +1,10 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: get-route
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/**
+#          filters:
+#            - PrefixPath=/api/v1

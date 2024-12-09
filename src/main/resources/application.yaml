@@ -23,11 +23,11 @@ spring:
           predicates:
             - Path=/users/**
           filters:
-            - PrefixPath=/api/v1/users
+            - PrefixPath=/api/v1
 
         - id: product-service-route
           uri: http://localhost:8081
           predicates:
             - Path=/products/**
           filters:
-            - PrefixPath=/api/v1/products
+            - PrefixPath=/api/v1

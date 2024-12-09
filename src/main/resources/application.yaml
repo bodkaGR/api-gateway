@@ -1,6 +1,10 @@
 server:
   port: 8443
 
+logging:
+  level:
+    gateway: debug
+
 spring:
   application:
     name: api-gateway
@@ -14,9 +18,16 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: get-route
+        - id: user-service-route
+          uri: http://localhost:8083
+          predicates:
+            - Path=/**
+          filters:
+            - PrefixPath=/api/v1/users
+
+        - id: product-service-route
           uri: http://localhost:8081
           predicates:
             - Path=/**
           filters:
-            - PrefixPath=/api/v1
+            - PrefixPath=/api/v1/products

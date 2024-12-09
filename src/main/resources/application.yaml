@@ -13,7 +13,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/targul
+          issuer-uri: http://localhost:8080/realms/trgl-realm
 
   cloud:
     gateway:
@@ -21,13 +21,13 @@ spring:
         - id: user-service-route
           uri: http://localhost:8083
           predicates:
-            - Path=/**
+            - Path=/users/**
           filters:
             - PrefixPath=/api/v1/users
 
         - id: product-service-route
           uri: http://localhost:8081
           predicates:
-            - Path=/**
+            - Path=/products/**
           filters:
             - PrefixPath=/api/v1/products
